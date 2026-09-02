@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alejandro Valadez — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#home" class="logo">Alejandro Valadez</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Hi, I'm</p>
+        <h1>Alejandro Valadez</h1>
+        <p class="tagline">Your one-line pitch goes here — e.g. "Software developer building things that solve real problems."</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-photo" aria-hidden="true">🧑‍💻</div>
+          <div class="about-text">
+            <p>Replace this paragraph with a short bio — who you are, what you do, and what you're interested in. A couple of sentences is plenty; visitors skim this section.</p>
+            <p>Mention your background, current focus (student, job, hobby projects), and anything that makes you distinct — languages you speak, tools you love, or a fun fact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-thumb">📁</div>
+            <h3>Project One</h3>
+            <p>Short description of what this project does and what you used to build it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-thumb">📁</div>
+            <h3>Project Two</h3>
+            <p>Short description of what this project does and what you used to build it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-thumb">📁</div>
+            <h3>Project Three</h3>
+            <p>Short description of what this project does and what you used to build it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+              <a href="#" target="_blank" rel="noopener">Source</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills-list">
+          <li>HTML &amp; CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Git &amp; GitHub</li>
+          <li>Add your own…</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container contact-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>Have a question or want to work together? Reach out below.</p>
+        <div class="contact-links">
+          <a href="mailto:alejandrovaladezmail@gmail.com" class="btn btn-primary">Email Me</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Alejandro Valadez. Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
