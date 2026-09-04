@@ -14,7 +14,8 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Alejandro Valadez — Portfolio",
-  description: "Student, builder, and STEM competitor at Jones College Prep / IMSA PROMISE.",
+  description:
+    "Sophomore at the Illinois Mathematics and Science Academy. Software projects, STEM research, competition math, and community service.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

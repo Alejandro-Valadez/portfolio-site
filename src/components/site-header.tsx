@@ -15,19 +15,20 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
+  { href: "#honors", label: "Honors" },
+  { href: "#activities", label: "Activities" },
   { href: "#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/80 bg-background/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link href="#home" className="font-heading text-base font-bold tracking-tight">
           Alejandro Valadez
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
