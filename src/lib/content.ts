@@ -52,6 +52,12 @@ export const PROJECTS: readonly Project[] = [
       "A physics study modeled on highway runaway truck ramps. I built a ramp-and-RC-car rig and measured stopping distance across concrete, sand, gravel, and glass. Gravel stopped the car in 0.41 m; glass took 1.21 m — roughly three times farther — confirming that surface texture drives stopping distance.",
     tags: ["Experimental Design", "Physics", "Data Analysis"],
     highlight: "IJAS State Exposition — Silver Award",
+    links: [
+      {
+        label: "Publication",
+        href: "https://www.researchgate.net/publication/414086383_Runaway_Ramps_Slowing_Down_With_Science_IJAS_2025",
+      },
+    ],
   },
   {
     title: "Avenues to Kindness",

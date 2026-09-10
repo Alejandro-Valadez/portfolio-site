@@ -37,7 +37,7 @@ export default function Home() {
     <>
       <SiteHeader />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero */}
         <section
           id="home"
@@ -69,7 +69,7 @@ export default function Home() {
               rel="noopener"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
-              <Download /> Résumé
+              <Download aria-hidden="true" /> Résumé
             </a>
           </div>
         </section>
@@ -134,7 +134,7 @@ export default function Home() {
                 <CardContent className="space-y-3">
                   {project.highlight ? (
                     <p className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
-                      <Award className="size-4 shrink-0" />
+                      <Award aria-hidden="true" className="size-4 shrink-0" />
                       {project.highlight}
                     </p>
                   ) : null}
@@ -231,7 +231,7 @@ export default function Home() {
               <Card key={group.heading} className="gap-4">
                 <CardHeader>
                   <div className="flex size-9 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
-                    <Users className="size-4" />
+                    <Users aria-hidden="true" className="size-4" />
                   </div>
                   <CardTitle className="font-heading">{group.heading}</CardTitle>
                   <CardDescription>{group.note}</CardDescription>
@@ -271,7 +271,7 @@ export default function Home() {
               href={`mailto:${PROFILE.email}`}
               className={cn(buttonVariants({ size: "lg" }))}
             >
-              <Mail /> Email Me
+              <Mail aria-hidden="true" /> Email Me
             </a>
             <a
               href={PROFILE.github}
@@ -279,7 +279,7 @@ export default function Home() {
               rel="noopener"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
-              <Code /> GitHub
+              <Code aria-hidden="true" /> GitHub
             </a>
             <a
               href={PROFILE.linkedin}
@@ -287,7 +287,7 @@ export default function Home() {
               rel="noopener"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
-              <Briefcase /> LinkedIn
+              <Briefcase aria-hidden="true" /> LinkedIn
             </a>
           </div>
         </section>
@@ -295,8 +295,13 @@ export default function Home() {
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
         <p className="inline-flex items-center gap-1.5">
-          <GraduationCap className="size-4" />
+          <GraduationCap aria-hidden="true" className="size-4" />
           &copy; {new Date().getFullYear()} {PROFILE.name}
+        </p>
+        <p className="mt-2">
+          <Link href="/privacy" className="hover:text-foreground hover:underline">
+            Privacy Policy
+          </Link>
         </p>
       </footer>
     </>
