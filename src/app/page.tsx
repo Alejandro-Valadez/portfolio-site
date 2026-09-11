@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { ACTIVITIES, HONORS, PROFILE, PROJECTS, SKILLS } from "@/lib/content";
+import { Reveal } from "@/components/reveal";
 
 function SectionDivider() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
         {/* Hero */}
         <section
           id="home"
-          className="mx-auto max-w-5xl px-6 pt-24 pb-20 text-center"
+          className="mx-auto max-w-5xl px-6 pt-24 pb-20 text-center motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700"
         >
           <p className="text-sm font-semibold tracking-wide text-primary uppercase">
             Hi, I&apos;m
@@ -60,14 +61,20 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link href="#projects" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link
+              href="#projects"
+              className={cn(buttonVariants({ size: "lg" }), "motion-safe:hover:-translate-y-0.5")}
+            >
               View My Work
             </Link>
             <a
               href={PROFILE.resume}
               target="_blank"
               rel="noopener"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "motion-safe:hover:-translate-y-0.5"
+              )}
             >
               <Download aria-hidden="true" /> Résumé
             </a>
@@ -78,40 +85,43 @@ export default function Home() {
 
         {/* About */}
         <section id="about" className="mx-auto max-w-5xl px-6 py-20">
-          <h2 className="text-center font-heading text-2xl font-bold sm:text-3xl">
-            About Me
-          </h2>
-          <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
-            <Avatar className="mx-auto size-28 border border-border">
-              <AvatarFallback className="bg-secondary font-heading text-xl text-secondary-foreground">
-                AV
-              </AvatarFallback>
-            </Avatar>
-            <div className="space-y-4 text-center sm:text-left">
-              {PROFILE.bio.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)} className="text-muted-foreground">
-                  {paragraph}
-                </p>
+          <Reveal>
+            <h2 className="text-center font-heading text-2xl font-bold sm:text-3xl">
+              About Me
+            </h2>
+            <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
+              <Avatar className="mx-auto size-28 border border-border">
+                <AvatarFallback className="bg-secondary font-heading text-xl text-secondary-foreground">
+                  AV
+                </AvatarFallback>
+              </Avatar>
+              <div className="space-y-4 text-center sm:text-left">
+                {PROFILE.bio.map((paragraph) => (
+                  <p key={paragraph.slice(0, 32)} className="text-muted-foreground">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            <h3 className="mt-14 text-center font-heading text-lg font-semibold">
+              What I Work With
+            </h3>
+            <div className="mt-6 flex flex-wrap justify-center gap-2.5">
+              {SKILLS.map((skill) => (
+                <Badge key={skill} variant="secondary" className="px-4 py-1.5 text-sm">
+                  {skill}
+                </Badge>
               ))}
             </div>
-          </div>
-
-          <h3 className="mt-14 text-center font-heading text-lg font-semibold">
-            What I Work With
-          </h3>
-          <div className="mt-6 flex flex-wrap justify-center gap-2.5">
-            {SKILLS.map((skill) => (
-              <Badge key={skill} variant="secondary" className="px-4 py-1.5 text-sm">
-                {skill}
-              </Badge>
-            ))}
-          </div>
+          </Reveal>
         </section>
 
         <SectionDivider />
 
         {/* Projects */}
         <section id="projects" className="mx-auto max-w-5xl px-6 py-20">
+          <Reveal>
           <h2 className="text-center font-heading text-2xl font-bold sm:text-3xl">
             Projects &amp; Experience
           </h2>
@@ -121,7 +131,10 @@ export default function Home() {
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {PROJECTS.map((project) => (
-              <Card key={project.title} className="gap-4">
+              <Card
+                key={project.title}
+                className="gap-4 transition-shadow duration-200 hover:shadow-lg motion-safe:hover:-translate-y-1"
+              >
                 <CardHeader>
                   <Badge variant="outline" className="w-fit">
                     {project.kind}
@@ -176,12 +189,14 @@ export default function Home() {
             </a>
             .
           </p>
+          </Reveal>
         </section>
 
         <SectionDivider />
 
         {/* Honors */}
         <section id="honors" className="mx-auto max-w-5xl px-6 py-20">
+          <Reveal>
           <h2 className="text-center font-heading text-2xl font-bold sm:text-3xl">
             Honors &amp; Awards
           </h2>
@@ -217,18 +232,23 @@ export default function Home() {
               </li>
             ))}
           </ol>
+          </Reveal>
         </section>
 
         <SectionDivider />
 
         {/* Activities */}
         <section id="activities" className="mx-auto max-w-5xl px-6 py-20">
+          <Reveal>
           <h2 className="text-center font-heading text-2xl font-bold sm:text-3xl">
             Activities
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {ACTIVITIES.map((group) => (
-              <Card key={group.heading} className="gap-4">
+              <Card
+                key={group.heading}
+                className="gap-4 transition-shadow duration-200 hover:shadow-lg motion-safe:hover:-translate-y-1"
+              >
                 <CardHeader>
                   <div className="flex size-9 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
                     <Users aria-hidden="true" className="size-4" />
@@ -251,6 +271,7 @@ export default function Home() {
               </Card>
             ))}
           </div>
+          </Reveal>
         </section>
 
         <SectionDivider />
@@ -260,6 +281,7 @@ export default function Home() {
           id="contact"
           className="mx-auto max-w-5xl px-6 py-20 text-center"
         >
+          <Reveal>
           <h2 className="font-heading text-2xl font-bold sm:text-3xl">
             Get In Touch
           </h2>
@@ -269,7 +291,7 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${PROFILE.email}`}
-              className={cn(buttonVariants({ size: "lg" }))}
+              className={cn(buttonVariants({ size: "lg" }), "motion-safe:hover:-translate-y-0.5")}
             >
               <Mail aria-hidden="true" /> Email Me
             </a>
@@ -277,7 +299,10 @@ export default function Home() {
               href={PROFILE.github}
               target="_blank"
               rel="noopener"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "motion-safe:hover:-translate-y-0.5"
+              )}
             >
               <Code aria-hidden="true" /> GitHub
             </a>
@@ -285,11 +310,15 @@ export default function Home() {
               href={PROFILE.linkedin}
               target="_blank"
               rel="noopener"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "motion-safe:hover:-translate-y-0.5"
+              )}
             >
               <Briefcase aria-hidden="true" /> LinkedIn
             </a>
           </div>
+          </Reveal>
         </section>
       </main>
 
