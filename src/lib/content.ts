@@ -8,7 +8,7 @@ export const PROFILE = {
     "Aerospace Engineering, Toulouse",
   ],
   email: "alejandrovaladezmail@gmail.com",
-  github: "https://github.com/f1alej",
+  github: "https://github.com/Alejandro-Valadez",
   linkedin: "https://www.linkedin.com/in/alejandro-valadez",
   resume: "/alejandro-valadez-resume.pdf",
   bio: [
@@ -43,7 +43,7 @@ export const PROJECTS: readonly Project[] = [
       "An MCP server that connects Claude to Canvas LMS, so I can ask what's due, pull up a rubric, or read instructor feedback in plain conversation — and submit work without leaving the chat. Covers courses, assignments, discussions, submissions, and reading .docx attachments.",
     tags: ["TypeScript", "Node.js", "Model Context Protocol", "Canvas API"],
     highlight: "Open source, MIT licensed",
-    links: [{ label: "Source", href: "https://github.com/f1alej/canvas-mcp" }],
+    links: [{ label: "Source", href: "https://github.com/Alejandro-Valadez/canvas-mcp" }],
   },
   {
     title: "Runaway Ramps: Slowing Down With Science",
