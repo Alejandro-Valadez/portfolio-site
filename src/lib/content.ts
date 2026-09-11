@@ -11,6 +11,7 @@ export const PROFILE = {
   github: "https://github.com/Alejandro-Valadez",
   linkedin: "https://www.linkedin.com/in/alejandro-valadez",
   resume: "/alejandro-valadez-resume.pdf",
+  photo: "/alejandro-valadez.jpg",
   bio: [
     "I'm a sophomore at the Illinois Mathematics and Science Academy, and I got here on purpose. I joined IMSA's PROMISE program in 7th grade and spent the next three years in weekend sessions and summer internships working toward the academy — while commuting two hours a day to Jones College Prep, where I finished freshman year with a 4.0 unweighted GPA as elected Vice President of the Class of 2029. I now tutor 9th graders in the same PROMISE program I came up through.",
     "I look at the world through economics and opportunity. I ran two seasonal businesses from 2023 through 2026 — shaved ice and caramel apples — and learned supply chains and margins the hard way. These days that curiosity goes into code: I build small tools that solve problems I actually have, like an MCP server that lets Claude read my Canvas coursework.",

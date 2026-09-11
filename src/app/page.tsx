@@ -20,7 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { ACTIVITIES, HONORS, PROFILE, PROJECTS, SKILLS } from "@/lib/content";
 import { Reveal } from "@/components/reveal";
@@ -91,6 +91,7 @@ export default function Home() {
             </h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
               <Avatar className="mx-auto size-28 border border-border">
+                <AvatarImage src={PROFILE.photo} alt={PROFILE.name} />
                 <AvatarFallback className="bg-secondary font-heading text-xl text-secondary-foreground">
                   AV
                 </AvatarFallback>
