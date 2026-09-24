@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PROFILE } from "@/lib/content";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Alejandro Valadez",
-  description: "What information this site collects, and what it doesn't.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: `Privacy Policy | ${PROFILE.name}`,
+  description: `Privacy policy for ${PROFILE.name}'s portfolio site: no cookies, analytics, or trackers — just what little data passes through when you visit or email.`,
+  path: "/privacy",
+});
 
 export default function PrivacyPolicy() {
   return (

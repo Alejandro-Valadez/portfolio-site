@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Code,
@@ -20,10 +22,57 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import { ACTIVITIES, HONORS, PROFILE, PROJECTS, SKILLS } from "@/lib/content";
+import {
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  KNOWS_ABOUT,
+  SAME_AS,
+  SITE_NAME,
+  SITE_URL,
+  pageMetadata,
+} from "@/lib/site";
 import { Reveal } from "@/components/reveal";
+
+export const metadata: Metadata = pageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+});
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: PROFILE.name,
+      url: SITE_URL,
+      image: `${SITE_URL}${PROFILE.photo}`,
+      description: HOME_DESCRIPTION,
+      jobTitle: "Student",
+      affiliation: {
+        "@type": "HighSchool",
+        name: "Illinois Mathematics and Science Academy",
+        url: "https://www.imsa.edu",
+      },
+      knowsAbout: KNOWS_ABOUT,
+      knowsLanguage: ["English", "Spanish"],
+      sameAs: SAME_AS,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: HOME_DESCRIPTION,
+      inLanguage: "en-US",
+      author: { "@id": `${SITE_URL}/#person` },
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+  ],
+};
 
 function SectionDivider() {
   return (
@@ -36,6 +85,12 @@ function SectionDivider() {
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <SiteHeader />
 
       <main id="main-content" className="flex-1">
@@ -90,12 +145,13 @@ export default function Home() {
               About Me
             </h2>
             <div className="mt-10 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-start">
-              <Avatar className="mx-auto size-28 border border-border">
-                <AvatarImage src={PROFILE.photo} alt={PROFILE.name} />
-                <AvatarFallback className="bg-secondary font-heading text-xl text-secondary-foreground">
-                  AV
-                </AvatarFallback>
-              </Avatar>
+              <Image
+                src={PROFILE.photo}
+                alt={PROFILE.name}
+                width={112}
+                height={112}
+                className="mx-auto size-28 rounded-full border border-border object-cover"
+              />
               <div className="space-y-4 text-center sm:text-left">
                 {PROFILE.bio.map((paragraph) => (
                   <p key={paragraph.slice(0, 32)} className="text-muted-foreground">
