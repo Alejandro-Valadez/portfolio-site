@@ -13,9 +13,10 @@ export const PROFILE = {
   resume: "/alejandro-valadez-resume.pdf",
   photo: "/alejandro-valadez.jpg",
   bio: [
-    "I'm a sophomore at the Illinois Mathematics and Science Academy, and I got here on purpose. I joined IMSA's PROMISE program in 7th grade and spent the next three years in weekend sessions and summer internships working toward the academy. Freshman year, I commuted two hours a day to Jones College Prep, finished with a 4.0 unweighted GPA, and was elected Vice President of the Class of 2029. Now I tutor 9th graders in the same PROMISE program I came up through.",
-    "I see the world through economics and opportunity. From 2023 through 2026, I ran two seasonal businesses, selling shaved ice and caramel apples, and learned about supply chains and margins the hard way. Lately, that curiosity has also gone into code: I build small tools for problems I actually have, like an MCP server that lets Claude read my Canvas coursework.",
-    "I believe leadership is defined by action. For my “Avenues to Kindness” project, I partnered with a disability-independence organization to deliver 90 handmade cards to its residents. The project earned the Tim Heneghan S.O.A.R. Award, one of only two given in my graduating class.",
+    "I do all of this because I want to challenge myself, keep learning, and understand the world at a deeper level. My upbringing taught me resilience, hard work, and how to see things from other people's perspectives, and I bring that to the things I care about most: engineering, business, finance, and investing.",
+    "School didn't always challenge me, so I went looking for it. I believe leadership is defined by action. In middle school, I served as 8th grade class president, earned a state Silver Award from the Illinois Junior Academy of Science for my research, and led an IB community project, “Avenues to Kindness,” that earned the Tim Heneghan S.O.A.R. Award. At Jones College Prep, a selective-enrollment school ranked among the best in Illinois, I commuted two hours a day, kept a 4.0 unweighted GPA, was elected Vice President of the Class of 2029, and filled my time with high-commitment activities like debate, math team, FBLA, and rocketry. What I didn't know yet was how much students were doing outside of school. None of my schools had programs that showed me that.",
+    "IMSA did. I joined its PROMISE program in 7th grade and spent three years of weekend sessions and summer internships working toward the academy. Now I'm a sophomore here, and I tutor 9th graders in the same program. What I value most is the environment: world-class teachers, classes that are hard in the best way, and upperclassmen who have mentored me and pointed me toward competitions and ideas. There's a real path here to do research, get involved beyond class, and build things. Shoutout to IN2.",
+    "I see the world through economics and opportunity. Since 2023, I've run a seasonal shaved ice and caramel apple stand and learned about supply chains and margins the hard way. That curiosity also goes into code: I build tools for problems I actually have, like an MCP server that lets Claude read my Canvas coursework.",
   ],
 } as const;
 
@@ -28,22 +29,22 @@ export const FOCUS_AREAS: readonly FocusArea[] = [
   {
     title: "Aerospace Engineering",
     description:
-      "A month in Toulouse studying aircraft engineering with doctorate-level instructors in a program run with Airbus, plus IMSA's AEROspace Club and Rocketry Club at Jones.",
+      "On scholarship, I spent a month in Toulouse in an Airbus-partnered aerospace program, where I led my team's model rocket build at INSA Toulouse. Before that, Rocketry Club at Jones; now IMSA's AEROspace Club.",
   },
   {
     title: "Finance & Investing",
     description:
-      "I follow markets and investing closely, an interest that started with pricing my own products. At IMSA, I take the Financial Empowerment Class.",
+      "I've traded and invested since I was 10: index ETFs like VOO and QQQ for the long term, and options for the short term. Trading has earned me about $15,000, and losing $5,000 to emotional trades taught me to set a take-profit and stop-loss every time.",
   },
   {
     title: "Business",
     description:
-      "Three seasons running two businesses of my own, handling sourcing, pricing, and margins. I'm part of IMSA's TALENT entrepreneurship program and was in FBLA at Jones.",
+      "Since 2023, I've run a shaved ice and caramel apple stand every summer and fall, from sourcing to marketing. My younger brother runs it now. I'm part of IMSA's TALENT entrepreneurship program and was in FBLA at Jones.",
   },
   {
     title: "Leadership",
     description:
-      "Elected Class of 2029 Vice President, stage manager for two school musicals, and now a tutor for 9th graders in IMSA's PROMISE program.",
+      "As elected Class of 2029 Vice President at Jones, I helped run six events, including the school's first underclassmen Spring Dance. I stage-managed two musicals and now tutor 9th graders in IMSA's PROMISE program.",
   },
 ];
 
@@ -61,9 +62,9 @@ export const PROJECTS: readonly Project[] = [
     title: "Aerospace Engineering in Toulouse",
     kind: "Program",
     description:
-      "A month-long aerospace engineering program with CIEE in Toulouse, France, taught by three doctorate-level instructors in partnership with Airbus. I studied the engineering behind the A350 in the city where it's built.",
-    tags: ["Aerospace", "Airbus Partnership", "Toulouse, France"],
-    highlight: "Summer 2026",
+      "The summer after freshman year, I earned a scholarship to a month-long aerospace engineering program with CIEE in Toulouse, France, run in partnership with Airbus. We had classes every day with doctorate-level instructors. Over eight workshops at INSA Toulouse, a leading engineering university, I led my team in designing a model rocket in OpenRocket, then building and launching it. When our parachute failed a bench test, we reinforced the heat shield and upgraded the suspension cord, and the rocket flew straight on launch. We also walked an Airbus assembly line and toured the city's aerospace museums.",
+    tags: ["Aerospace", "OpenRocket", "Team Lead", "Toulouse, France"],
+    highlight: "Summer 2026 · Scholarship",
   },
   {
     title: "Canvas LMS MCP Server",
@@ -73,6 +74,17 @@ export const PROJECTS: readonly Project[] = [
     tags: ["TypeScript", "Node.js", "Model Context Protocol", "Canvas API"],
     highlight: "Open source, MIT licensed",
     links: [{ label: "Source", href: "https://github.com/Alejandro-Valadez/canvas-mcp" }],
+  },
+  {
+    title: "Le Grand Tour",
+    kind: "Software",
+    description:
+      "A multiplayer French-review board game for my IMSA French III class, where two to six players play from their phones. I built it on my own, first as a website and then as a published Roblox game scripted in Luau.",
+    tags: ["TypeScript", "Multiplayer", "Roblox", "Luau"],
+    links: [
+      { label: "Play", href: "https://le-grand-tour.vercel.app" },
+      { label: "Source", href: "https://github.com/Alejandro-Valadez/le-grand-tour" },
+    ],
   },
   {
     title: "Runaway Ramps: Slowing Down With Science",
@@ -97,12 +109,35 @@ export const PROJECTS: readonly Project[] = [
     highlight: "One of two S.O.A.R. Award recipients",
   },
   {
+    title: "Class of 2029 Vice President",
+    kind: "Leadership",
+    description:
+      "Elected Vice President of the Class of 2029 at Jones College Prep. I set up and ran our meetings, listened to classmates and brought their ideas to the board, wrote our meeting reports, and wrote the mid-year and end-of-year reports to administration. Our board ran six events, including a Winter Movie Night, a Valentine's card fundraiser, and the school's first underclassmen Spring Dance. I worked with administration to get the dance approved, and it raised $3,000 for our class.",
+    tags: ["Student Government", "Event Planning", "Fundraising"],
+    highlight: "Spring Dance raised $3,000",
+  },
+  {
+    title: "8th Grade Class President",
+    kind: "Leadership",
+    description:
+      "As class president at Ebinger Elementary, I organized three dances (a Hawaiian-themed dance, a Halloween dance, and a winter formal) and helped set up and run the school's IB Nights, open houses for prospective families. I also set up partnerships with local restaurants: customers who mentioned our school got 15% off, and 15% of those sales came back to our class.",
+    tags: ["Student Government", "Event Planning", "Partnerships"],
+    highlight: "Three dances, restaurant fundraising",
+  },
+  {
+    title: "Stage Manager, Two Musicals",
+    kind: "Leadership",
+    description:
+      "I stage-managed The Lion King Jr. and Beauty and the Beast Jr. in middle school. Most of the job is handling what nobody can plan for: during one show, a set piece started to fall, and I got it back up mid-scene. Clear communication with the sound and lights crews is what made each show run.",
+    tags: ["Theater", "Crew Coordination"],
+  },
+  {
     title: "Shaved Ice & Caramel Apples",
     kind: "Entrepreneurship",
     description:
-      "Two seasonal micro-businesses I launched and ran from 2023 through 2026. Handling sourcing, pricing, and profit margins myself taught me more about supply chains than any textbook, and it sparked an interest in markets and investing that I still follow.",
-    tags: ["Operations", "Pricing", "Supply Chain"],
-    highlight: "Three seasons, self-run",
+      "Since 2023, I've run a shaved ice and caramel apple stand every summer and fall. I handled all of it: sourcing fresh local syrups, inventory, setup and teardown, storage, maintenance, and marketing. Shaved ice sold for $2 a cup and cost about 60¢ to make, bringing in around $150 a day in profit. In the fall, we sold $5 cups of apple slices topped with caramel, peanuts, candy, and chocolate, bringing in about $200 a day in profit. Yard signs, flags, and social pages with 5,000+ followers across Instagram, Facebook, Snapchat, and Nextdoor made us known around the neighborhood. In 2026, I sold part of the business to my younger brother, who runs it now, and I still earn a share of the profits.",
+    tags: ["Operations", "Pricing", "Marketing"],
+    highlight: "Since 2023 · now run by my brother",
   },
 ];
 
@@ -197,7 +232,7 @@ export const HONORS: readonly Honor[] = [
   },
   {
     date: "Sep 2024",
-    title: "Nominated Student Government Association President",
+    title: "Student Government Association President",
     org: "Ebinger Elementary",
   },
   {
@@ -219,7 +254,6 @@ export const ACTIVITIES: readonly ActivityGroup[] = [
     items: [
       "IMSA PROMISE Program — Tutor, 9th grade",
       "AEROspace Club (AERO)",
-      "Mu Alpha Theta — Mathematics Honor Society",
       "IMSA Society of Engineers (ISE)",
       "Physics Club",
       "Speech Team",
@@ -252,7 +286,7 @@ export const ACTIVITIES: readonly ActivityGroup[] = [
     note: "2023 – 25",
     items: [
       "Science Fair — 2024–25",
-      "Student Government Association — 2023–25",
+      "Student Government Association — 2023–25 (President, 2024–25)",
       "MYP Community Projects — 2024–25",
       "Stage Manager, Beauty and the Beast Jr. — 2024–25",
       "Stage Manager, The Lion King Jr. — 2023–24",
