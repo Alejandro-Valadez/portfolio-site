@@ -1,7 +1,7 @@
 export const PROFILE = {
   name: "Alejandro Valadez",
   tagline:
-    "Sophomore at the Illinois Mathematics and Science Academy — aerospace, quantum computing, and competition math. I build small software tools, run experiments, and tutor the program that got me here.",
+    "Sophomore at the Illinois Mathematics and Science Academy focused on aerospace engineering, finance, and business. I build small software tools, run experiments, and tutor in the program that got me here.",
   badges: [
     "IMSA Class of 2029",
     "PROMISE Scholar → Tutor",
@@ -13,11 +13,39 @@ export const PROFILE = {
   resume: "/alejandro-valadez-resume.pdf",
   photo: "/alejandro-valadez.jpg",
   bio: [
-    "I'm a sophomore at the Illinois Mathematics and Science Academy, and I got here on purpose. I joined IMSA's PROMISE program in 7th grade and spent the next three years in weekend sessions and summer internships working toward the academy — while commuting two hours a day to Jones College Prep, where I finished freshman year with a 4.0 unweighted GPA as elected Vice President of the Class of 2029. I now tutor 9th graders in the same PROMISE program I came up through.",
-    "I look at the world through economics and opportunity. I ran two seasonal businesses from 2023 through 2026 — shaved ice and caramel apples — and learned supply chains and margins the hard way. These days that curiosity goes into code: I build small tools that solve problems I actually have, like an MCP server that lets Claude read my Canvas coursework.",
-    "I also think leadership is defined by action. My “Avenues to Kindness” project partnered with a disability-independence organization to deliver 90 handmade cards to residents, and it earned the Tim Heneghan S.O.A.R. Award — one of two given in my graduating class.",
+    "I'm a sophomore at the Illinois Mathematics and Science Academy, and I got here on purpose. I joined IMSA's PROMISE program in 7th grade and spent the next three years in weekend sessions and summer internships working toward the academy. Freshman year, I commuted two hours a day to Jones College Prep, finished with a 4.0 unweighted GPA, and was elected Vice President of the Class of 2029. Now I tutor 9th graders in the same PROMISE program I came up through.",
+    "I see the world through economics and opportunity. From 2023 through 2026, I ran two seasonal businesses, selling shaved ice and caramel apples, and learned about supply chains and margins the hard way. Lately, that curiosity has also gone into code: I build small tools for problems I actually have, like an MCP server that lets Claude read my Canvas coursework.",
+    "I believe leadership is defined by action. For my “Avenues to Kindness” project, I partnered with a disability-independence organization to deliver 90 handmade cards to its residents. The project earned the Tim Heneghan S.O.A.R. Award, one of only two given in my graduating class.",
   ],
 } as const;
+
+export type FocusArea = {
+  title: string;
+  description: string;
+};
+
+export const FOCUS_AREAS: readonly FocusArea[] = [
+  {
+    title: "Aerospace Engineering",
+    description:
+      "A month in Toulouse studying aircraft engineering with doctorate-level instructors in a program run with Airbus, plus IMSA's AEROspace Club and Rocketry Club at Jones.",
+  },
+  {
+    title: "Finance & Investing",
+    description:
+      "I follow markets and investing closely, an interest that started with pricing my own products. At IMSA, I take the Financial Empowerment Class.",
+  },
+  {
+    title: "Business",
+    description:
+      "Three seasons running two businesses of my own, handling sourcing, pricing, and margins. I'm part of IMSA's TALENT entrepreneurship program and was in FBLA at Jones.",
+  },
+  {
+    title: "Leadership",
+    description:
+      "Elected Class of 2029 Vice President, stage manager for two school musicals, and now a tutor for 9th graders in IMSA's PROMISE program.",
+  },
+];
 
 export type Project = {
   title: string;
@@ -33,7 +61,7 @@ export const PROJECTS: readonly Project[] = [
     title: "Aerospace Engineering in Toulouse",
     kind: "Program",
     description:
-      "A month-long aerospace engineering program with CIEE in Toulouse, France, taught by three doctorate-level instructors in partnership with Airbus — spent in the city that builds the A350, studying the engineering behind it.",
+      "A month-long aerospace engineering program with CIEE in Toulouse, France, taught by three doctorate-level instructors in partnership with Airbus. I studied the engineering behind the A350 in the city where it's built.",
     tags: ["Aerospace", "Airbus Partnership", "Toulouse, France"],
     highlight: "Summer 2026",
   },
@@ -50,7 +78,7 @@ export const PROJECTS: readonly Project[] = [
     title: "Runaway Ramps: Slowing Down With Science",
     kind: "Research",
     description:
-      "A physics study modeled on highway runaway truck ramps. I built a ramp-and-RC-car rig and measured stopping distance across concrete, sand, gravel, and glass. Gravel stopped the car in 0.41 m; glass took 1.21 m — roughly three times farther — confirming that surface texture drives stopping distance.",
+      "A physics study modeled on highway runaway truck ramps. I built a ramp-and-RC-car rig and measured stopping distance on concrete, sand, gravel, and glass. Gravel stopped the car in 0.41 m, while glass took 1.21 m, roughly three times farther, which showed that surface texture drives stopping distance.",
     tags: ["Experimental Design", "Physics", "Data Analysis"],
     highlight: "IJAS State Exposition — Silver Award",
     links: [
@@ -66,13 +94,13 @@ export const PROJECTS: readonly Project[] = [
     description:
       "I partnered with a disability-independence organization to design and deliver 90 handmade cards to their residents. The project earned the Tim Heneghan S.O.A.R. Award — given to two students in my graduating class — and the IB Principled Learner Award for disability advocacy.",
     tags: ["Community Partnership", "Disability Advocacy"],
-    highlight: "2 of 2 S.O.A.R. Award recipients",
+    highlight: "One of two S.O.A.R. Award recipients",
   },
   {
     title: "Shaved Ice & Caramel Apples",
     kind: "Entrepreneurship",
     description:
-      "Two seasonal micro-businesses I launched and ran from 2023 through 2026. Sourcing, pricing, and profit margins taught me more about supply chains than any textbook — and started an interest in markets and investing that I still keep up with.",
+      "Two seasonal micro-businesses I launched and ran from 2023 through 2026. Handling sourcing, pricing, and profit margins myself taught me more about supply chains than any textbook, and it sparked an interest in markets and investing that I still follow.",
     tags: ["Operations", "Pricing", "Supply Chain"],
     highlight: "Three seasons, self-run",
   },
@@ -193,11 +221,13 @@ export const ACTIVITIES: readonly ActivityGroup[] = [
       "AEROspace Club (AERO)",
       "Mu Alpha Theta — Mathematics Honor Society",
       "IMSA Society of Engineers (ISE)",
-      "Qubit — Quantum Computing Club",
+      "Physics Club",
       "Speech Team",
       "Financial Empowerment Class (FEC)",
       "IMSA Student Productions (ISP)",
       "Alma Latina",
+      "TALENT (Total Applied Learning for Entrepreneurs)",
+      "Intramural Sports",
     ],
   },
   {
@@ -242,7 +272,6 @@ export const SKILLS: readonly string[] = [
   "Model Context Protocol",
   "Experimental design",
   "Data analysis",
-  "Competition math",
   "Policy debate & speech",
   "Spanish — State Seal of Biliteracy",
 ];

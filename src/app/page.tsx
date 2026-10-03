@@ -23,7 +23,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { ACTIVITIES, HONORS, PROFILE, PROJECTS, SKILLS } from "@/lib/content";
+import {
+  ACTIVITIES,
+  FOCUS_AREAS,
+  HONORS,
+  PROFILE,
+  PROJECTS,
+  SKILLS,
+} from "@/lib/content";
 import {
   HOME_DESCRIPTION,
   HOME_TITLE,
@@ -162,6 +169,20 @@ export default function Home() {
             </div>
 
             <h3 className="mt-14 text-center font-heading text-lg font-semibold">
+              What I Know
+            </h3>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {FOCUS_AREAS.map((area) => (
+                <Card key={area.title} className="gap-2">
+                  <CardHeader>
+                    <CardTitle className="font-heading">{area.title}</CardTitle>
+                    <CardDescription>{area.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+
+            <h3 className="mt-14 text-center font-heading text-lg font-semibold">
               What I Work With
             </h3>
             <div className="mt-6 flex flex-wrap justify-center gap-2.5">
@@ -183,7 +204,7 @@ export default function Home() {
             Projects &amp; Experience
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
-            Engineering, software, research, service, and one small business —
+            Engineering, software, research, service, and small business:
             the things I&apos;ve actually built and done.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
