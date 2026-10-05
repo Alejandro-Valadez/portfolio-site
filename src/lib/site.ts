@@ -11,7 +11,7 @@ export const SITE_NAME = PROFILE.name;
 
 export const HOME_TITLE = `${PROFILE.name} | IMSA Student, Developer & Researcher`;
 
-export const HOME_DESCRIPTION = `${PROFILE.name} is a sophomore at the Illinois Mathematics and Science Academy (IMSA) building software, studying aerospace engineering, and running small businesses.`;
+export const HOME_DESCRIPTION = `${PROFILE.name} is an IMSA sophomore focused on aerospace engineering, finance, and business, who builds software and has run a small business since 2023.`;
 
 // Public profiles that belong to Alejandro, used for JSON-LD `sameAs`.
 // TODO(Alejandro): add any other public profiles here (e.g. a ResearchGate

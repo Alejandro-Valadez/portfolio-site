@@ -309,3 +309,16 @@ export const SKILLS: readonly string[] = [
   "Policy debate & speech",
   "Spanish — State Seal of Biliteracy",
 ];
+
+// Short tool list for the "I build with" tile on the home page.
+export const STACK: readonly string[] = [
+  "TypeScript",
+  "Python",
+  "Next.js",
+  "React",
+  "Node.js",
+  "Luau",
+  "MCP",
+  "Git",
+  "OpenRocket",
+];
