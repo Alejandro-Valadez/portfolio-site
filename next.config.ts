@@ -2,16 +2,17 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV !== "production";
 
-// Next.js inlines small bootstrap scripts (and this site inlines its theme
-// script), so script-src needs 'unsafe-inline' unless every page moves to
+// Next.js inlines small bootstrap scripts, so script-src needs 'unsafe-inline' unless every page moves to
 // nonces, which would force dynamic rendering. Dev mode also needs eval.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  // youtube.com serves the IFrame API the music player uses.
+  `script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://i.ytimg.com",
   "font-src 'self'",
   "media-src 'self'",
+  "frame-src https://www.youtube-nocookie.com https://www.youtube.com",
   `connect-src 'self'${isDev ? " ws:" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",

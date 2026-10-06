@@ -5,18 +5,18 @@ import { pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: `Privacy Policy | ${PROFILE.name}`,
-  description: `Privacy policy for ${PROFILE.name}'s portfolio site: no cookies, analytics, or trackers — just what little data passes through when you visit or email.`,
+  description: `Privacy policy for ${PROFILE.name}'s portfolio site: no analytics or ads. Covers the YouTube-powered music player, the website audit tool, and email.`,
   path: "/privacy",
 });
 
 export default function PrivacyPolicy() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-20">
+    <main id="main-content" className="glass mx-auto my-10 w-[calc(100%-2rem)] max-w-2xl rounded-[2rem] px-6 py-14 sm:px-10">
       <h1 className="font-heading text-3xl font-bold tracking-tight">
         Privacy Policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated: September 10, 2026
+        Last updated: October 5, 2026
       </p>
 
       <div className="mt-10 space-y-8 text-muted-foreground">
@@ -26,9 +26,10 @@ export default function PrivacyPolicy() {
           </h2>
           <p className="mt-2">
             This is a personal portfolio site for {PROFILE.name}. It doesn&apos;t
-            run ads, doesn&apos;t sell anything, and doesn&apos;t use analytics,
-            tracking scripts, or cookies of any kind. This page explains the
-            little bit of data that does pass through it.
+            run ads, doesn&apos;t sell anything, and doesn&apos;t use analytics.
+            The site itself sets no cookies. This page explains the little bit
+            of data that does pass through it, including the one third-party
+            service it uses: YouTube, for the music player.
           </p>
         </section>
 
@@ -56,18 +57,36 @@ export default function PrivacyPolicy() {
               reliability. I don&apos;t access, store, or use this data myself.
             </li>
             <li>
-              <span className="font-medium text-foreground">
-                No cookies, no analytics, no trackers:
-              </span>{" "}
-              this site doesn&apos;t set cookies, run analytics, or embed any
-              third-party tracking or advertising scripts.
+              <span className="font-medium text-foreground">Music player:</span>{" "}
+              the song streams from YouTube&apos;s embedded player, using
+              YouTube&apos;s privacy-enhanced mode (youtube-nocookie.com). The
+              embed only loads after you interact with the page, by scrolling,
+              clicking, typing, or pointing at the player. Once it loads,
+              YouTube receives your IP address and browser details like any
+              video embed, and Google&apos;s privacy policy applies to that
+              data. Your track, volume, and playback position are saved in
+              your own browser&apos;s local storage so the music can resume
+              where you left off. That data never leaves your device.
+            </li>
+            <li>
+              <span className="font-medium text-foreground">Website audit tool:</span>{" "}
+              when you run an audit, the address you enter is sent to this
+              site&apos;s server, which fetches that public page to check it.
+              Results are cached in memory for about two minutes and are not
+              stored or logged by me. To prevent abuse, the server keeps a
+              short-lived, in-memory count of requests per IP address that is
+              never written to disk.
+            </li>
+            <li>
+              <span className="font-medium text-foreground">No analytics or ads:</span>{" "}
+              this site doesn&apos;t run analytics or embed any advertising
+              scripts.
             </li>
             <li>
               <span className="font-medium text-foreground">Fonts:</span> this
-              site uses Google Fonts (Archivo and Space Grotesk), but they are
+              site uses Google Fonts (Geist, Geist Mono, and Instrument Serif),
               self-hosted at build time rather than loaded from Google&apos;s
-              servers at runtime — so visiting this site doesn&apos;t share any
-              data with Google through font loading.
+              servers, so font loading doesn&apos;t share any data with Google.
             </li>
           </ul>
         </section>
@@ -77,8 +96,8 @@ export default function PrivacyPolicy() {
             Third-party links
           </h2>
           <p className="mt-2">
-            This site links out to GitHub, LinkedIn, and a downloadable résumé
-            PDF. Once you leave this site, the destination&apos;s own privacy
+            This site links out to GitHub, LinkedIn, and YouTube, and offers a
+            downloadable résumé and CV as PDFs. Once you leave this site, the destination&apos;s own privacy
             policy applies.
           </p>
         </section>

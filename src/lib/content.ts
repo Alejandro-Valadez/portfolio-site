@@ -11,6 +11,7 @@ export const PROFILE = {
   github: "https://github.com/Alejandro-Valadez",
   linkedin: "https://www.linkedin.com/in/alejandro-valadez",
   resume: "/alejandro-valadez-resume.pdf",
+  cv: "/alejandro-valadez-cv.pdf",
   photo: "/alejandro-valadez.jpg",
   bio: [
     "I do all of this because I want to challenge myself, keep learning, and understand the world at a deeper level. My upbringing taught me resilience, hard work, and how to see things from other people's perspectives, and I bring that to the things I care about most: engineering, business, finance, and investing.",
@@ -55,7 +56,11 @@ export type Project = {
   tags: readonly string[];
   highlight?: string;
   links?: readonly { label: string; href: string }[];
+  /** Featured projects get a card at the top of Work; `cover` picks its art. */
+  featured?: { summary: string; cover: ProjectCover };
 };
+
+export type ProjectCover = "rocket" | "terminal" | "board" | "ramps";
 
 export const PROJECTS: readonly Project[] = [
   {
@@ -65,6 +70,11 @@ export const PROJECTS: readonly Project[] = [
       "The summer after freshman year, I earned a scholarship to a month-long aerospace engineering program with CIEE in Toulouse, France, run in partnership with Airbus. We had classes every day with doctorate-level instructors. Over eight workshops at INSA Toulouse, a leading engineering university, I led my team in designing a model rocket in OpenRocket, then building and launching it. When our parachute failed a bench test, we reinforced the heat shield and upgraded the suspension cord, and the rocket flew straight on launch. We also walked an Airbus assembly line and toured the city's aerospace museums.",
     tags: ["Aerospace", "OpenRocket", "Team Lead", "Toulouse, France"],
     highlight: "Summer 2026 · Scholarship",
+    featured: {
+      summary:
+        "Led my team's model rocket build over eight workshops at INSA Toulouse, in a month-long, Airbus-partnered program I attended on scholarship.",
+      cover: "rocket",
+    },
   },
   {
     title: "Canvas LMS MCP Server",
@@ -74,6 +84,11 @@ export const PROJECTS: readonly Project[] = [
     tags: ["TypeScript", "Node.js", "Model Context Protocol", "Canvas API"],
     highlight: "Open source, MIT licensed",
     links: [{ label: "Source", href: "https://github.com/Alejandro-Valadez/canvas-mcp" }],
+    featured: {
+      summary:
+        "An open-source MCP server that lets Claude read my Canvas courses, assignments, rubrics, and feedback, and submit work from the chat.",
+      cover: "terminal",
+    },
   },
   {
     title: "Le Grand Tour",
@@ -85,6 +100,11 @@ export const PROJECTS: readonly Project[] = [
       { label: "Play", href: "https://le-grand-tour.vercel.app" },
       { label: "Source", href: "https://github.com/Alejandro-Valadez/le-grand-tour" },
     ],
+    featured: {
+      summary:
+        "A multiplayer French-review board game I built on my own, first as a website, then as a published Roblox game in Luau.",
+      cover: "board",
+    },
   },
   {
     title: "Runaway Ramps: Slowing Down With Science",
@@ -99,6 +119,11 @@ export const PROJECTS: readonly Project[] = [
         href: "https://www.researchgate.net/publication/414086383_Runaway_Ramps_Slowing_Down_With_Science_IJAS_2025",
       },
     ],
+    featured: {
+      summary:
+        "Physics research on runaway truck ramps. Gravel stopped my RC car in 0.41 m; glass took 1.21 m. Silver Award at the IJAS state exposition.",
+      cover: "ramps",
+    },
   },
   {
     title: "Avenues to Kindness",
@@ -321,4 +346,67 @@ export const STACK: readonly string[] = [
   "MCP",
   "Git",
   "OpenRocket",
+];
+
+export type TimelineEntry = {
+  /** Shown big and sticky beside the entry. */
+  period: string;
+  title: string;
+  body: string;
+  stats?: readonly { value: string; label: string }[];
+};
+
+// Newest first. Only things that are on the record elsewhere on this page.
+export const TIMELINE: readonly TimelineEntry[] = [
+  {
+    period: "Fall 2026",
+    title: "Sophomore at IMSA",
+    body: "After three years of PROMISE weekend sessions and summer internships, I started at the Illinois Mathematics and Science Academy. On Saturdays I tutor 9th graders in that same program. I joined AEROspace Club, the IMSA Society of Engineers, and TALENT, I take the Financial Empowerment Class, and I built Le Grand Tour for French III.",
+    stats: [
+      { value: "Class of 2029", label: "IMSA" },
+      { value: "PROMISE", label: "student to tutor" },
+    ],
+  },
+  {
+    period: "Summer 2026",
+    title: "Aerospace engineering in Toulouse",
+    body: "On scholarship, I spent a month in Toulouse, France, in a CIEE program run with Airbus and taught by doctorate-level instructors. I led my team's model rocket through eight workshops at INSA Toulouse. The parachute failed its bench test, so we reinforced the heat shield and upgraded the suspension cord, and it flew straight. This was also the year I sold part of my business to my younger brother.",
+    stats: [
+      { value: "8", label: "rocket workshops" },
+      { value: "1 month", label: "in France, on scholarship" },
+    ],
+  },
+  {
+    period: "2025 – 26",
+    title: "Freshman year at Jones College Prep",
+    body: "I commuted two hours a day, kept a 4.0 unweighted GPA, and was elected Vice President of the Class of 2029. Our board ran six events, including the school's first underclassmen Spring Dance, which I worked with administration to get approved. I also made the quarterfinals of the Northwestern Policy Debate City Championship, and in May I was admitted to IMSA.",
+    stats: [
+      { value: "$3,000", label: "raised by the Spring Dance" },
+      { value: "4.0", label: "unweighted GPA" },
+    ],
+  },
+  {
+    period: "2024 – 25",
+    title: "8th grade at Ebinger",
+    body: "As class president I organized three dances, helped run the school's IB Nights, and set up restaurant partnerships that sent 15% of sales back to our class. My research on runaway truck ramps won Silver at the Illinois Junior Academy of Science state exposition, and my community project, Avenues to Kindness, earned the Tim Heneghan S.O.A.R. Award. I also stage-managed Beauty and the Beast Jr.",
+    stats: [
+      { value: "Silver", label: "IJAS state exposition" },
+      { value: "90", label: "handmade cards delivered" },
+    ],
+  },
+  {
+    period: "2023",
+    title: "PROMISE, a stage, and a shaved ice stand",
+    body: "In February of 7th grade I joined IMSA's PROMISE program. That summer I opened a shaved ice stand: $2 a cup, about 60¢ to make, around $150 a day in profit. Caramel apple cups became the fall product. I stage-managed The Lion King Jr. that school year.",
+    stats: [
+      { value: "~$150", label: "profit on a summer day" },
+      { value: "$2.00", label: "per cup, about 60¢ to make" },
+    ],
+  },
+  {
+    period: "Age 10",
+    title: "My first trade",
+    body: "I started trading and investing at 10. Today that means index ETFs like VOO and QQQ for the long term and options for the short term. Losing $5,000 to emotional trades taught me to set a take-profit and a stop-loss on every trade.",
+    stats: [{ value: "~$15,000", label: "lifetime trading gains" }],
+  },
 ];

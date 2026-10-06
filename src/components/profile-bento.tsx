@@ -12,7 +12,7 @@ function Tile({
   return (
     <div
       className={cn(
-        "relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card p-6 transition-colors duration-300 hover:border-foreground/20 sm:p-7",
+        "glass glass-interactive flex flex-col overflow-hidden rounded-3xl p-6 sm:p-7",
         className
       )}
     >
@@ -39,7 +39,7 @@ function Candles() {
         const x = 14 + i * 28;
         const up = close < open;
         return (
-          <g key={x} className={up ? "text-success" : "text-ember"}>
+          <g key={x} className={up ? "text-success" : "text-brand"}>
             <line x1={x} x2={x} y1={high} y2={low} stroke="currentColor" strokeWidth="1.2" />
             <rect
               x={x - 6}
@@ -109,7 +109,7 @@ export function ProfileBento() {
       {/* Business receipt */}
       <Tile className="lg:col-span-3">
         <Label>Business · since 2023</Label>
-        <div className="mt-4 rounded-xl border border-dashed border-border bg-background/60 p-4 font-mono text-[12.5px] leading-6 text-muted-foreground">
+        <div className="mt-4 rounded-xl border border-dashed border-white/15 bg-black/25 p-4 font-mono text-[12.5px] leading-6 text-muted-foreground">
           <p className="text-center text-[11px] tracking-[0.2em] text-foreground uppercase">
             Shaved ice &amp; caramel apples
           </p>
@@ -138,7 +138,7 @@ export function ProfileBento() {
         </p>
         <ul className="mt-auto flex flex-wrap gap-2 pt-6 text-xs">
           {["6 class events", "Ran the meetings", "Wrote the reports to admin"].map((item) => (
-            <li key={item} className="rounded-full border border-border px-3 py-1 text-muted-foreground">
+            <li key={item} className="rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-muted-foreground">
               {item}
             </li>
           ))}
@@ -152,7 +152,7 @@ export function ProfileBento() {
           {STACK.map((tool) => (
             <li
               key={tool}
-              className="rounded-md bg-muted px-2.5 py-1 font-mono text-xs text-foreground/80"
+              className="rounded-md border border-white/10 bg-white/[0.05] px-2.5 py-1 font-mono text-xs text-foreground/80"
             >
               {tool}
             </li>
@@ -169,7 +169,7 @@ export function ProfileBento() {
       </Tile>
 
       {/* Contact */}
-      <Tile className="bg-ember-soft lg:col-span-2">
+      <Tile className="bg-[linear-gradient(160deg,rgb(111_168_255/0.22),rgb(47_111_235/0.08))] lg:col-span-2">
         <Label>Questions?</Label>
         <p className="mt-4 font-display text-2xl leading-tight">
           Email is the fastest way to reach me.

@@ -59,7 +59,7 @@ export function CopyEmail({ email }: { email: string }) {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:border-foreground/30"
+      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-sm font-medium transition-colors hover:border-white/30 hover:bg-white/10"
     >
       {copied ? (
         <Check aria-hidden className="size-4 text-success" />
@@ -109,7 +109,7 @@ export function Trajectory({ className }: { className?: string }) {
       <path d={path} stroke="currentColor" strokeOpacity="0.12" strokeWidth="1.5" />
       <path
         d={path}
-        stroke="var(--ember)"
+        stroke="var(--brand)"
         strokeWidth="2"
         strokeLinecap="round"
         pathLength={1000}
@@ -126,8 +126,8 @@ export function Trajectory({ className }: { className?: string }) {
           transition: "opacity 0.4s ease 1.2s",
         }}
       >
-        <line x1="239.4" x2="239.4" y1="32" y2="196" stroke="var(--ember)" strokeOpacity="0.35" strokeDasharray="3 4" />
-        <circle cx="239.4" cy="32.1" r="4" fill="var(--ember)" />
+        <line x1="239.4" x2="239.4" y1="32" y2="196" stroke="var(--brand)" strokeOpacity="0.35" strokeDasharray="3 4" />
+        <circle cx="239.4" cy="32.1" r="4" fill="var(--brand)" />
         <text x="249" y="24" fill="currentColor" fillOpacity="0.55" fontSize="11" fontFamily="var(--font-mono)">
           APOGEE
         </text>

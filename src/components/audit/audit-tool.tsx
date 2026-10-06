@@ -25,7 +25,7 @@ const gradeTone: Record<Grade, string> = {
   A: "text-success",
   B: "text-success",
   C: "text-warning",
-  D: "text-ember",
+  D: "text-brand",
   F: "text-destructive",
 };
 
@@ -77,9 +77,9 @@ function CategoryPanel({ category }: { category: CategoryResult }) {
     <section
       id={`audit-${category.key}`}
       aria-labelledby={`audit-${category.key}-title`}
-      className="scroll-mt-24 rounded-3xl border border-border bg-card"
+      className="glass scroll-mt-24 rounded-3xl"
     >
-      <header className="flex items-center justify-between gap-4 border-b border-border px-6 py-5">
+      <header className="flex items-center justify-between gap-4 border-b border-white/10 px-6 py-5">
         <div>
           <h3 id={`audit-${category.key}-title`} className="font-display text-2xl font-normal">
             {category.label}
@@ -120,8 +120,8 @@ function CategoryPanel({ category }: { category: CategoryResult }) {
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{check.detail}</p>
               {check.fix ? (
-                <p className="mt-2 rounded-lg bg-muted/60 px-3 py-2 text-sm">
-                  <span className="text-label mr-2 text-ember">Fix</span>
+                <p className="mt-2 rounded-lg border border-white/10 bg-white/[0.05] px-3 py-2 text-sm">
+                  <span className="text-label mr-2 text-brand">Fix</span>
                   {check.fix}
                 </p>
               ) : null}
@@ -232,7 +232,7 @@ export function AuditTool() {
           placeholder="yourwebsite.com"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="h-12 flex-1 rounded-full border border-input bg-card px-5 text-base outline-none placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/25"
+          className="h-12 flex-1 rounded-full border border-white/15 bg-black/30 px-5 backdrop-blur-md text-base outline-none placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/25"
         />
         <button
           type="submit"
@@ -265,7 +265,7 @@ export function AuditTool() {
               {i < step ? (
                 <Check aria-hidden className="size-3.5 text-success" />
               ) : i === step ? (
-                <Loader2 aria-hidden className="size-3.5 animate-spin text-ember" />
+                <Loader2 aria-hidden className="size-3.5 animate-spin text-brand" />
               ) : (
                 <span className="size-3.5" />
               )}
@@ -283,7 +283,7 @@ export function AuditTool() {
 
       {report ? (
         <div ref={resultsRef} className="mt-14 scroll-mt-24 space-y-6 motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500">
-          <div className="flex flex-col items-center gap-6 rounded-3xl border border-border bg-card p-6 sm:flex-row sm:p-8">
+          <div className="glass flex flex-col items-center gap-6 rounded-3xl p-6 sm:flex-row sm:p-8">
             <ScoreRing score={report.score} grade={report.grade} />
             <div className="min-w-0 text-center sm:text-left">
               <p className={cn("text-label", gradeTone[report.grade])}>Grade {report.grade}</p>
@@ -320,7 +320,7 @@ export function AuditTool() {
               <a
                 key={c.key}
                 href={`#audit-${c.key}`}
-                className="rounded-2xl border border-border bg-card p-4 text-center transition-colors hover:border-foreground/25"
+                className="glass glass-interactive rounded-2xl p-4 text-center"
               >
                 <p className="text-label text-muted-foreground">{c.label}</p>
                 <p className={cn("mt-2 font-display text-4xl leading-none", gradeTone[c.grade])}>

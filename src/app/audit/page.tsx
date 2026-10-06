@@ -42,7 +42,7 @@ export default function AuditPage() {
   return (
     <main id="main-content" className="mx-auto w-full max-w-4xl flex-1 px-5 pt-16 pb-28 sm:pt-24">
       <header className="text-center">
-        <p className="text-label text-ember">Free tool</p>
+        <p className="text-label text-brand">Free tool</p>
         <h1 className="mt-4 font-display text-5xl leading-[1.05] font-normal tracking-tight sm:text-7xl">
           What&apos;s wrong with <em className="text-muted-foreground">your</em> website?
         </h1>
@@ -53,7 +53,7 @@ export default function AuditPage() {
       </header>
 
       <div className="mt-10">
-        <Suspense fallback={<div className="mx-auto h-12 max-w-xl rounded-full border border-border bg-card" />}>
+        <Suspense fallback={<div className="mx-auto h-12 max-w-xl rounded-full border border-white/15 bg-black/30" />}>
           <AuditTool />
         </Suspense>
       </div>
@@ -64,7 +64,7 @@ export default function AuditPage() {
         </h2>
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {Object.entries(CATEGORY_META).map(([key, meta], i) => (
-            <div key={key} className="rounded-3xl border border-border bg-card p-6">
+            <div key={key} className="glass glass-interactive rounded-3xl p-6">
               <p className="font-mono text-xs text-muted-foreground">0{i + 1}</p>
               <h3 className="mt-2 font-display text-2xl font-normal">{meta.label}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{meta.blurb}</p>
@@ -77,9 +77,9 @@ export default function AuditPage() {
         <h2 id="faq-title" className="font-display text-4xl font-normal">
           Questions
         </h2>
-        <div className="mt-6 border-t border-border">
+        <div className="glass mt-6 rounded-3xl px-6">
           {FAQ.map((item) => (
-            <details key={item.q} className="group border-b border-border py-5">
+            <details key={item.q} className="group border-b border-white/10 py-5 last:border-b-0">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <span

@@ -9,12 +9,12 @@ export function WorkList({ projects }: { projects: readonly Project[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <ol className="border-t border-border">
+    <ol>
       {projects.map((project, i) => {
         const expanded = open === i;
         const panelId = `work-panel-${i}`;
         return (
-          <li key={project.title} className="border-b border-border">
+          <li key={project.title} className="border-b border-white/10 last:border-b-0">
             <h3>
               <button
                 type="button"
@@ -26,7 +26,7 @@ export function WorkList({ projects }: { projects: readonly Project[] }) {
                 <span className="font-mono text-xs text-muted-foreground tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-display text-2xl leading-tight transition-colors group-hover:text-ember sm:text-3xl">
+                <span className="font-display text-2xl leading-tight transition-colors group-hover:text-brand sm:text-3xl">
                   {project.title}
                 </span>
                 <span className="text-label hidden text-muted-foreground sm:inline">
@@ -55,7 +55,7 @@ export function WorkList({ projects }: { projects: readonly Project[] }) {
                   <div className="hidden sm:block" />
                   <div className="max-w-2xl">
                     {project.highlight ? (
-                      <p className="text-label mb-3 text-ember">{project.highlight}</p>
+                      <p className="text-label mb-3 text-brand">{project.highlight}</p>
                     ) : null}
                     <p className="leading-relaxed text-muted-foreground">{project.description}</p>
                     <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
@@ -63,7 +63,7 @@ export function WorkList({ projects }: { projects: readonly Project[] }) {
                         {project.tags.map((tag) => (
                           <li
                             key={tag}
-                            className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted-foreground"
+                            className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-xs text-muted-foreground"
                           >
                             {tag}
                           </li>
@@ -75,7 +75,7 @@ export function WorkList({ projects }: { projects: readonly Project[] }) {
                           href={link.href}
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex items-center gap-1 text-sm font-medium underline decoration-border underline-offset-4 hover:decoration-ember"
+                          className="inline-flex items-center gap-1 text-sm font-medium underline decoration-white/25 underline-offset-4 hover:decoration-brand"
                         >
                           {link.label}
                           <ArrowUpRight aria-hidden className="size-3.5" />

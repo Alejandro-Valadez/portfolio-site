@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Download, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, FileText, Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/brand-icons";
 import { ProfileBento } from "@/components/profile-bento";
+import { ProjectCards } from "@/components/project-cards";
 import { Reveal } from "@/components/reveal";
+import { Timeline } from "@/components/timeline";
 import { WorkList } from "@/components/work-list";
-import { ACTIVITIES, HONORS, PROFILE, PROJECTS } from "@/lib/content";
+import { ACTIVITIES, HONORS, PROFILE, PROJECTS, TIMELINE } from "@/lib/content";
 import { PLAYLIST } from "@/lib/playlist";
 import {
   HOME_DESCRIPTION,
@@ -79,7 +81,7 @@ function SectionHeading({
     <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
       <div>
         <p className="text-label text-muted-foreground">
-          <span className="text-ember">{index}</span> / {label}
+          <span className="text-brand">{index}</span> / {label}
         </p>
         <h2 className="mt-3 font-display text-4xl leading-none font-normal tracking-tight sm:text-5xl">
           {title}
@@ -91,7 +93,10 @@ function SectionHeading({
 }
 
 const iconLink =
-  "inline-flex size-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground";
+  "glass glass-interactive inline-flex size-11 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-foreground";
+
+const pillButton =
+  "glass glass-interactive inline-flex h-11 items-center gap-2 rounded-full px-5 text-sm font-medium transition-transform hover:-translate-y-0.5";
 
 export default function Home() {
   return (
@@ -114,11 +119,11 @@ export default function Home() {
                 width={56}
                 height={56}
                 priority
-                className="size-14 rounded-full border border-border object-cover"
+                className="size-14 rounded-full border border-white/20 object-cover shadow-[0_8px_24px_-8px_rgb(0_0_0/0.8)]"
               />
               <p className="text-label text-muted-foreground">
                 IMSA sophomore
-                <span className="mx-2 text-ember">·</span>
+                <span className="mx-2 text-brand">·</span>
                 Class of 2029
               </p>
             </div>
@@ -126,7 +131,7 @@ export default function Home() {
             <h1 className="mt-8 font-display text-6xl leading-[0.95] font-normal tracking-tight sm:text-8xl">
               Alejandro
               <br />
-              Valadez<span className="text-ember">.</span>
+              Valadez<span className="text-brand">.</span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-balance text-muted-foreground sm:text-xl">
@@ -136,19 +141,17 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="#work"
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_10px_30px_-10px_rgb(111_168_255/0.65)] transition-transform hover:-translate-y-0.5"
               >
                 See my work <ArrowRight aria-hidden className="size-4" />
               </Link>
-              <a
-                href={PROFILE.resume}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-border px-5 text-sm font-medium transition-colors hover:border-foreground/30"
-              >
+              <a href={PROFILE.resume} target="_blank" rel="noopener" className={pillButton}>
                 <Download aria-hidden className="size-4" /> Résumé
               </a>
-              <span aria-hidden className="mx-1 hidden h-6 w-px bg-border sm:block" />
+              <a href={PROFILE.cv} target="_blank" rel="noopener" className={pillButton}>
+                <FileText aria-hidden className="size-4" /> Full CV
+              </a>
+              <span aria-hidden className="mx-1 hidden h-6 w-px bg-white/15 sm:block" />
               <div className="flex gap-3">
                 <a href={PROFILE.github} target="_blank" rel="noopener" aria-label="GitHub" className={iconLink}>
                   <GitHubIcon className="size-4" />
@@ -163,9 +166,9 @@ export default function Home() {
             </div>
           </div>
 
-          <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-4">
+          <dl className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {STATS.map((stat) => (
-              <div key={stat.label} className="flex flex-col-reverse justify-end bg-background p-5">
+              <div key={stat.label} className="glass glass-interactive flex flex-col-reverse justify-end rounded-3xl p-5">
                 <dt className="mt-2 text-sm leading-snug text-muted-foreground">{stat.label}</dt>
                 <dd className="font-display text-4xl leading-none">{stat.value}</dd>
               </div>
@@ -187,13 +190,13 @@ export default function Home() {
             <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
               <div>
                 <p className="text-label text-muted-foreground">
-                  <span className="text-ember">02</span> / About
+                  <span className="text-brand">02</span> / About
                 </p>
                 <h2 className="mt-3 font-display text-4xl leading-none font-normal tracking-tight sm:text-5xl md:sticky md:top-28">
                   Why I do this
                 </h2>
               </div>
-              <div className="space-y-5 text-[17px] leading-relaxed text-muted-foreground">
+              <div className="glass space-y-5 rounded-3xl p-6 text-[17px] leading-relaxed text-muted-foreground sm:p-8">
                 {PROFILE.bio.map((paragraph, i) => (
                   <p
                     key={paragraph.slice(0, 32)}
@@ -220,26 +223,30 @@ export default function Home() {
                 More on GitHub <ArrowUpRight aria-hidden className="size-3.5" />
               </a>
             </SectionHeading>
-            <WorkList projects={PROJECTS} />
+            <ProjectCards projects={PROJECTS} />
+            <h3 className="text-label mt-16 mb-4 text-muted-foreground">More work and leadership</h3>
+            <div className="glass rounded-3xl px-5 sm:px-7">
+              <WorkList projects={PROJECTS.filter((project) => !project.featured)} />
+            </div>
           </Reveal>
         </section>
 
         {/* Audit teaser */}
         <section aria-labelledby="audit-teaser" className="mx-auto max-w-5xl px-5 py-16">
           <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] bg-foreground px-6 py-12 text-background sm:px-12 sm:py-16">
+            <div className="glass relative overflow-hidden rounded-[2rem] px-6 py-12 sm:px-12 sm:py-16">
               <div
                 aria-hidden
-                className="absolute -top-24 -right-24 size-72 rounded-full bg-ember opacity-30 blur-3xl"
+                className="absolute -top-24 -right-24 -z-10 size-80 rounded-full bg-brand-deep opacity-40 blur-3xl"
               />
-              <p className="text-label relative opacity-60">Free tool · built by me</p>
+              <p className="text-label relative text-brand">Free tool · built by me</p>
               <h2
                 id="audit-teaser"
                 className="relative mt-4 max-w-xl font-display text-4xl leading-[1.05] font-normal sm:text-5xl"
               >
                 How does your website hold up?
               </h2>
-              <p className="relative mt-4 max-w-lg opacity-70">
+              <p className="relative mt-4 max-w-lg text-muted-foreground">
                 My audit tool checks about 45 things across SEO, security headers, accessibility, and
                 performance, then tells you exactly how to fix each one.
               </p>
@@ -255,11 +262,11 @@ export default function Home() {
                   required
                   spellCheck={false}
                   placeholder="yourwebsite.com"
-                  className="h-12 flex-1 rounded-full border border-background/20 bg-background/10 px-5 text-background outline-none placeholder:text-background/50 focus-visible:border-background/60"
+                  className="h-12 flex-1 rounded-full border border-white/15 bg-black/25 px-5 text-foreground outline-none placeholder:text-muted-foreground focus-visible:border-brand"
                 />
                 <button
                   type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-background px-6 font-medium text-foreground transition-transform hover:-translate-y-0.5"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
                 >
                   Run audit <ArrowRight aria-hidden className="size-4" />
                 </button>
@@ -268,15 +275,25 @@ export default function Home() {
           </Reveal>
         </section>
 
+        {/* Journey */}
+        <section id="journey" className="mx-auto max-w-5xl scroll-mt-24 px-5 py-16">
+          <SectionHeading index="04" label="Journey" title="How I got here">
+            <p className="max-w-xs text-sm text-muted-foreground">
+              From a first trade at 10 to a rocket launch in Toulouse.
+            </p>
+          </SectionHeading>
+          <Timeline entries={TIMELINE} />
+        </section>
+
         {/* Honors */}
         <section id="honors" className="mx-auto max-w-5xl scroll-mt-24 px-5 py-16">
           <Reveal>
-            <SectionHeading index="04" label="Honors" title="Recognition" />
-            <ol className="border-t border-border">
+            <SectionHeading index="05" label="Honors" title="Recognition" />
+            <ol className="glass rounded-3xl px-5 sm:px-7">
               {HONORS.map((honor) => (
                 <li
                   key={`${honor.date}-${honor.title}`}
-                  className="grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-1 border-b border-border py-4 sm:grid-cols-[7rem_1fr_auto]"
+                  className="grid grid-cols-[5.5rem_1fr] gap-x-4 gap-y-1 border-b border-white/10 py-4 last:border-b-0 sm:grid-cols-[7rem_1fr_auto]"
                 >
                   <time className="pt-0.5 font-mono text-xs text-muted-foreground">{honor.date}</time>
                   <div>
@@ -300,15 +317,15 @@ export default function Home() {
         {/* Activities */}
         <section id="activities" className="mx-auto max-w-5xl scroll-mt-24 px-5 py-16">
           <Reveal>
-            <SectionHeading index="05" label="Activities" title="Where my time goes" />
-            <div className="grid gap-10 md:grid-cols-3">
+            <SectionHeading index="06" label="Activities" title="Where my time goes" />
+            <div className="grid gap-4 md:grid-cols-3">
               {ACTIVITIES.map((group) => (
-                <div key={group.heading}>
+                <div key={group.heading} className="glass glass-interactive rounded-3xl p-6">
                   <h3 className="font-display text-2xl leading-tight font-normal">{group.heading}</h3>
                   <p className="mt-1 font-mono text-xs text-muted-foreground">{group.note}</p>
                   <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground">
                     {group.items.map((item) => (
-                      <li key={item} className="border-l-2 border-border pl-3">
+                      <li key={item} className="border-l-2 border-brand/30 pl-3">
                         {item}
                       </li>
                     ))}
@@ -322,9 +339,9 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="mx-auto max-w-5xl scroll-mt-24 px-5 pt-16 pb-28">
           <Reveal>
-            <div className="border-t border-border pt-16 text-center">
+            <div className="glass rounded-[2rem] px-6 py-16 text-center">
               <p className="text-label text-muted-foreground">
-                <span className="text-ember">06</span> / Contact
+                <span className="text-brand">07</span> / Contact
               </p>
               <h2 className="mt-4 font-display text-6xl leading-none font-normal tracking-tight sm:text-8xl">
                 Let&apos;s talk.
@@ -335,7 +352,7 @@ export default function Home() {
               </p>
               <a
                 href={`mailto:${PROFILE.email}`}
-                className="mt-8 inline-block font-display text-2xl break-all underline decoration-border decoration-1 underline-offset-8 transition-colors hover:decoration-ember sm:text-3xl"
+                className="mt-8 inline-block font-display text-2xl break-all underline decoration-white/25 decoration-1 underline-offset-8 transition-colors hover:decoration-brand sm:text-3xl"
               >
                 {PROFILE.email}
               </a>
@@ -349,18 +366,21 @@ export default function Home() {
                 <a href={PROFILE.resume} target="_blank" rel="noopener" aria-label="Résumé (PDF)" className={iconLink}>
                   <Download aria-hidden className="size-4" />
                 </a>
+                <a href={PROFILE.cv} target="_blank" rel="noopener" aria-label="Full CV (PDF)" className={iconLink}>
+                  <FileText aria-hidden className="size-4" />
+                </a>
               </div>
             </div>
           </Reveal>
         </section>
       </main>
 
-      <footer className="border-t border-border px-5 py-8 pb-24 text-sm text-muted-foreground sm:pb-8">
+      <footer className="border-t border-white/10 bg-black/20 px-5 py-8 pb-24 text-sm text-muted-foreground backdrop-blur-md sm:pb-8">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} {PROFILE.name}</p>
           <p className="text-center text-xs">
-            Music: &ldquo;{PLAYLIST[0].title}&rdquo; by {PLAYLIST[0].artist}. All rights belong to the
-            artist.
+            Music: &ldquo;{PLAYLIST[0].title}&rdquo; by {PLAYLIST[0].artist}, streamed from YouTube.
+            Rain footage from Pexels.
           </p>
           <Link href="/privacy" className="hover:text-foreground hover:underline">
             Privacy

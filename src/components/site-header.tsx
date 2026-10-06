@@ -12,11 +12,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV_LINKS = [
   { href: "/#profile", label: "Profile" },
   { href: "/#work", label: "Work" },
+  { href: "/#journey", label: "Journey" },
   { href: "/#honors", label: "Honors" },
   { href: "/audit", label: "Site Audit" },
   { href: "/#contact", label: "Contact" },
@@ -27,10 +27,10 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 px-4 pt-3 sm:pt-4">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full border border-border/80 bg-background/80 pr-2 pl-5 shadow-[0_8px_30px_-18px_rgba(0,0,0,0.35)] backdrop-blur-md">
+      <div className="glass glass-thick glass-interactive mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full pr-2 pl-5">
         <Link href="/" className="flex items-baseline gap-1.5 font-display text-xl leading-none">
           Alejandro Valadez
-          <span aria-hidden className="size-1.5 rounded-full bg-ember" />
+          <span aria-hidden className="size-1.5 rounded-full bg-brand" />
         </Link>
 
         <div className="flex items-center gap-1">
@@ -44,7 +44,7 @@ export function SiteHeader() {
                   aria-current={active ? "page" : undefined}
                   className={cn(
                     "rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
-                    active && "bg-muted text-foreground"
+                    active && "bg-white/10 text-foreground"
                   )}
                 >
                   {link.label}
@@ -52,8 +52,6 @@ export function SiteHeader() {
               );
             })}
           </nav>
-
-          <ThemeToggle className="rounded-full" />
 
           <Sheet>
             <SheetTrigger
