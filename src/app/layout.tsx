@@ -5,6 +5,7 @@ import { MusicPlayer } from "@/components/music-player";
 import { RainBackground } from "@/components/rain-background";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const geist = Geist({
   variable: "--font-sans",
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         {children}
         <MusicPlayer />
+        <Analytics />
       </body>
     </html>
   );
